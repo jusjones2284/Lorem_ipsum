@@ -6,7 +6,9 @@ const App = () => {
 
   const handleSubmit =(e)=>{
     e.preventDefault()
-    console.log(typeof count);
+    let amount = parseInt(count);
+    setText(data.slice(0, amount));
+    
   }
 
   return <section className="section-center">
@@ -19,11 +21,15 @@ const App = () => {
             step="1" max="8"
             value={count} onChange={(e)=> setCount(e.target.value)}
             />
-
             <button className="btn" type="submit">generate</button>
-
-
     </form>
+    <article className="lorem-text">
+      {text.map((item, index)=>{
+
+        return <p key={index}>{item}</p>
+
+      })}
+    </article>
 
 
   </section>;
