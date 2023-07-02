@@ -1,8 +1,11 @@
 import { useState } from "react";
 import data from './data'
+import { nanoid } from "nanoid";
+
 const App = () => {
   const [count, setCount] = useState(1);
   const [text, setText] = useState([]);
+  const id = nanoid();
 
   const handleSubmit =(e)=>{
     e.preventDefault()
@@ -24,9 +27,9 @@ const App = () => {
             <button className="btn" type="submit">generate</button>
     </form>
     <article className="lorem-text">
-      {text.map((item, index)=>{
-
-        return <p key={index}>{item}</p>
+      {text.map((item,id)=>{
+        console.log(id);
+        return <p key={id}>{item}</p>
 
       })}
     </article>
